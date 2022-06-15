@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AHR BLOGS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Boxicon awesome icon -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"">
+    <style type="text/css">
+      img{
+        max-width: 100%;
+        object-fit: cover;
+      }
+    
+      .featured_image{
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+    
+      .post-container{
+          width: 900px;
+          margin: 0 auto;
+          padding-top: 20px;
+          padding-bottom: 20px;
+      }
+    
+      .author-pic{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+    
+      @media screen and (max-width: 900px){
+        .post-container{
+          width: 95%;
+        }
+      }
+    </style>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/hi_IN/sdk.js#xfbml=1&version=v14.0" nonce="BpmG64vN"></script>
+  </head>
+  <body>
+
+    <!-- header -->
+    
+    <nav class = "navbar">
+      <div class = "container">
+        <a href = "{% url 'blog:home' %}" class = "navbar-brand">AHR Blogs</a>
+        <div class = "navbar-nav">
+          <a href = "{% url 'blog:home' %}">home</a>
+          <a href = "{% url 'blog:articles' %}">articles</a>
+          <a href = "{% url 'blog:about' %}">about</a>
+          <a href = "{% url 'blog:contact' %}">Contact US</a>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- end of header -->
+
+    <!-- start of post -->
+    <div class="post-container">
+        <img class="featured_img" src="{{ article.image.url }}">
+        <!-- start article details -->
+        <div class="article-info">
+          <div class="article-info-content display-center">
+            <div class="display-center">
+              <img class="author-pic" src="{{ article.author.profile_pic.url }}" alt="">
+              <h6>by {{ article.author }} on {{ article.publish|date:"D M Y" }}</h6>
+            </div>
+            
+            <div class="article-meta">
+              {% for Tag in article.Tags.all %}
+              <span class="Tag"><a href="#">{{ Tag.name }}</a></span>
+              {% endfor %}
+              <a class="back-button" href="{% url 'blog:articles' %}">All Articles</a>
+            </div>
+          </div>
+        </div>
+        <!-- end of article details -->
+        <hr>   
+        <br>
+        <p>{{ article.body|safe }}</p>
+        <div class="fb-like" data-href="http://127.0.0.1:8000/articles/" data-width="" data-layout="standard" data-action="like" data-size="large" data-share="true"></div>
+        <div class="fb-comments" data-href="http://127.0.0.1:8000/articles/" data-width="" data-numposts="2"></div>
+    </div>
+    <!-- end of post -->
+
+    <!-- footer -->
+    <footer>
+      <div class = "social-links">
+        <a href = "#"><i class='bx bxl-facebook'></i></a>
+        <a href = "#"><i class='bx bxl-twitter'></i></a>
+        <a href = "#"><i class='bx bxl-instagram'></i></a>
+        <a href = "#"><i class='bx bxl-github'></i></a>
+      </div>
+      <span>AHR Blogs</span>
+    </footer>
+    <!-- end of footer -->
+    
+    
+  </body>
+</html>

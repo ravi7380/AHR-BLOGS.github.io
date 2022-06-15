@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> AHR BLOGS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Boxicon awesome icon -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+      .mb-1{
+        margin-bottom: 1rem;
+        display: flex;
+      }
+      .myinput{
+        width: 100%;
+        margin-left: 1rem;
+        padding: 0.5rem;
+        border: 2px solid black;
+        border-radius: 5px;
+
+      }
+      label{
+        width: 18%;
+      }
+      textarea{
+        width: 100%;
+        margin-left: 1rem;
+        border: 2px solid black;
+        height: 102px;
+        border-radius: 6px;
+        padding: 0.5rem;
+      }
+      .sbtn{
+        width: 112px;
+    height: 38px;
+    background: blue;
+    border: 2px solid white;
+    border-radius: 8px;
+    color: white;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <!-- header -->
+    <header>
+      <nav class = "navbar">
+        <div class = "container">
+          <a href = "{% url 'blog:home' %}" class = "navbar-brand">AHR Blogs</a>
+          <div class = "navbar-nav">
+            <a href = "{% url 'blog:home' %}">home</a>
+            <a href = "{% url 'blog:articles' %}">articles</a>
+            <a href = "{% url 'blog:about' %}">about</a>
+            <a href = "{% url 'blog:contact' %}">Contact US</a>
+          </div>
+        </div>
+      </nav>
+
+      <h1 style="text-align:center;margin:2rem;color:white;">Contact Form</h1>
+      <div style="width: 100%;">
+      <form class="" method="post" style="margin: 0px 24%;display: block;width: 50%;background: #fff;padding: 2%;">
+        {% csrf_token %}
+        <div class="mb-1">
+          <label for="fname">Name</label>
+          <input name="name" type="text" class="myinput" id="fname" placeholder="enter your name" required><br>
+         </div>
+         
+         <div class="mb-1">
+          <label for="exampleInputemail">Email</label>
+          <input name="email" type="text" class="myinput" id="exampleInputemail" placeholder="enter your Email" required><br>
+        </div>
+
+        <div class="mb-1">
+          <label for="mobileno">Mobile no</label>
+          <input name="mobileno" type="text" class="myinput" id="exampleInputmobile no" placeholder="enter your mobile no" required><br>
+        </div>
+        <div class="mb-1">
+          <label for="message">Message</label>
+          <textarea name="message" id="Message" placeholder="enter your Message" required></textarea><br>
+        </div>
+        
+        
+        <button type="submit" class="sbtn">Submit</button>
+      </form> 
+    </div>
+    </header>
+    <!-- end of header -->
+    
+    
+
+    <!-- footer -->
+    <footer>
+      <div class = "social-links">
+        <a href = "https://www.facebook.com/"><i class='bx bxl-facebook'></i></a>
+        <a href = "https://twitter.com/i/flow/login"><i class='bx bxl-twitter'></i></a>
+        <a href = "https://www.instagram.com/"><i class='bx bxl-instagram'></i></a>
+        <a href = "https://github.com/login"><i class='bx bxl-github'></i></a>
+      </div>
+      <span>AHR Blogs</span>
+    </footer>
+    <!-- end of footer -->
+    
+    
+  </body>
+</html>

@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> AHR BLOGS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Boxicon awesome icon -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"">
+    
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/hi_IN/sdk.js#xfbml=1&version=v14.0" nonce="BpmG64vN"></script>
+
+  </head>
+  <body>
+
+    <!-- header -->
+    <header>
+      <nav class = "navbar">
+        <div class = "container">
+          <a href = "{% url 'blog:home' %}" class = "navbar-brand">AHR Blogs</a>
+          <div class = "navbar-nav">
+            <a href = "{% url 'blog:home' %}">home</a>
+            <a href = "{% url 'blog:articles' %}">articles</a>
+            <a href = "{% url 'blog:about' %}">about</a>
+            <a href = "{% url 'blog:contact' %}">Contact US</a>
+          </div>
+        </div>
+      </nav>
+      <div class = "banner">
+        <div class = "container">
+          <h1 class = "banner-title">
+            <span>AHR</span> Blogs
+          </h1>
+          <p style="color:White;"> A blog (a shortened version of “weblog”) is an online journal or informational website displaying information in reverse chronological order,
+             with the latest posts appearing first, at the top. It is a platform where a writer or a group of writers share their views on an individual subject.</p>
+        </div>
+      </div>
+    </header>
+    <!-- end of header -->
+    
+    <!-- featured -->
+    <section class = "featured" id = "featured">
+      <div class = "container">
+        <div class = "title">
+          <h2>Featured articles</h2>
+        </div>
+
+        <div class = "featured-content">
+          {% for article in articles %}
+          <!-- item -->
+          <div class = "featured-item">
+            <div class = "featured-img">
+              <a href="{{ article.get_absolute_url }}">
+                <img src = "{{ article.image.url }}" alt = "">
+                <span><i class='bx bx-calendar-star'></i>{{ article.publish|date:"M Y" }}</span>
+                <span>{{ article.sub_headline }}</span>
+              </a>
+            </div>
+            <div class = "featured-title">
+              <a href = "{{ article.get_absolute_url }}">{{ article.headline }}</a>
+            </div>
+          </div>
+          
+          <!-- end of item -->
+          {% empty %}
+			      <h3>No Featured Article at the Moment...</h3>  
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <!-- end of featured -->
+
+    <!-- about -->
+    <section class = "about" id = "about">
+      <div class = "container">
+        <div class = "about-content">
+          <div>
+            <img src = "{% static 'images/scba.jpg' %}" alt = "">
+          </div>
+          <div class = "about-text">
+            <div class = "title">
+              <p><h2>SUBHAS CHANDRA BOSE</h2><br>
+                <h4 align="left">Died At Age: 48</h4>
+                <h4 align="left">Born On: January 23, 1897</h4>
+                <h4 align="left">Died On: August 18, 1945</h4>
+                <h4 align="left">Born In: Cuttack, India</h4>
+                <p style="text-align: justify;">Subhas Chandra Bose was a renowned Indian revolutionary, freedom fighter,
+                  and nationalist leader. His intransigent patriotism made him a luminary in India.
+                   During the late 1920s and throughout 1930s, he became the leader of radical, young, 
+                   wing of the Indian National Congress, and by 1938, he became the Congress President.
+                    Following differences with Congress high command and Mahatma Gandhi, he resigned from Congress
+                     leadership in 1939. In 1940, before he escaped from India, he was placed under house arrest by the British.
+                      His adage, ‘Give Me Blood And I Will Give You Freedom’ is till date inked on the hearts of every patriot.
+                       Here is a collection of inspiring, motivating, enlightening and famous quotes and sayings by India’s distinguished 
+                       freedom fighter, Netaji, who gave all his sweat and blood towards India’s freedom struggle. 
+                 Read through the popular, and thought-provoking quotes and thoughts by Subhash Chandra Bose.</p>
+              </p>
+              
+        </div>
+      </div>
+      <div class="fb-like" data-href="http://127.0.0.1:8000/" data-width="" data-layout="standard" data-action="like" data-size="large" data-share="true"></div>
+      <div class="fb-comments" data-href="http://127.0.0.1:8000/" data-width="" data-numposts="2"></div>
+      
+    </section>
+
+    <section class = "about" id = "about">
+      <div class = "container">
+        <div class = "about-content">
+          <div>
+            <div class = "title" >,
+              <p><h2>DR. A.P.J. ABDUL KALAM</h2><br>
+                <h4 align="right">Died At Age: 48</h4>
+                <h4 align="right">Born On: October 15, 1931</h4>
+                <h4 align="right">Died On: July 27, 2015</h4>
+                <h4 align="right">Born In: Rameswaram, India</h4>
+                <p style="text-align: justify;">A.P.J. Abdul Kalam, in full Avul Pakir Jainulabdeen Abdul Kalam, Indian scientist and politician who played a 
+                  leading role in the development of India’s missile and nuclear weapons programs. He was president of India from 2002 to 2007.
+                  Kalam earned a degree in aeronautical engineering from the Madras Institute of Technology 
+                  and in 1958 joined the Defence Research and Development Organisation (DRDO). In 1969 he moved 
+                  to the Indian Space Research Organisation, where he was project director of the SLV-III, the 
+                  first satellite launch vehicle that was both designed and produced in India. Rejoining DRDO in 1982, 
+                  Kalam planned the program that produced a number of successful missiles, which helped earn him the 
+                  nickname “Missile Man.” Among those successes was Agni, India’s first intermediate-range ballistic missile, 
+                  which incorporated aspects of the SLV-III and was launched in 1989</p>
+              </p>
+        </div>
+
+          </div>
+          
+          <div class = "about-text">
+             <img  src = "{% static 'images/apj.jpg' %}" alt = "">
+      </div>
+      <div class="fb-like" data-href="http://127.0.0.1:8000/" data-width="" data-layout="standard" data-action="like" data-size="large" data-share="true"></div>
+      <div class="fb-comments" data-href="http://127.0.0.1:8000/" data-width="" data-numposts="2"></div>
+    </section>
+
+    
+    <!-- end of about -->
+
+    <!-- footer -->
+    <footer>
+      <div class = "social-links">
+        <a href = "https://www.facebook.com/"><i class='bx bxl-facebook'></i></a>
+        <a href = "https://twitter.com/i/flow/login"><i class='bx bxl-twitter'></i></a>
+        <a href = "https://www.instagram.com/"><i class='bx bxl-instagram'></i></a>
+        <a href = "https://github.com/login"><i class='bx bxl-github'></i></a>
+      </div>
+      <span>AHR Blogs</span>
+    </footer>
+    <!-- end of footer -->
+    
+    
+  </body>
+</html>

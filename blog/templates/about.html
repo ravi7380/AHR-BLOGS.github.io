@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> AHR BLOGS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Boxicon awesome icon -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"">
+  </head>
+  <body>
+
+    <!-- header -->
+    <header>
+      <nav class = "navbar">
+        <div class = "container">
+          <a href = "{% url 'blog:home' %}" class = "navbar-brand">AHR Blogs</a>
+          <div class = "navbar-nav">
+            <a href = "{% url 'blog:home' %}">home</a>
+            <a href = "{% url 'blog:articles' %}">articles</a>
+            <a href = "{% url 'blog:about' %}">about</a>
+            <a href = "{% url 'blog:contact' %}">Contact US</a>
+          </div>
+        </div>
+      </nav>
+      
+    </header>
+    <!-- end of header -->
+    
+
+    <!-- footer -->
+    <footer>
+      <div class = "social-links">
+        <a href = "#"><i class='bx bxl-facebook'></i></a>
+        <a href = "#"><i class='bx bxl-twitter'></i></a>
+        <a href = "#"><i class='bx bxl-instagram'></i></a>
+        <a href = "#"><i class='bx bxl-github'></i></a>
+      </div>
+      <span>AHR Blogs</span>
+    </footer>
+    <!-- end of footer -->
+    
+    
+  </body>
+</html>
